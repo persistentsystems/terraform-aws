@@ -52,9 +52,3 @@ resource "aws_eks_cluster" "eks_cluster" {
     var.eks_cluster_settings.custom_tags
   )
 }
-
-resource "aws_cloudwatch_log_group" "eks_logging" {
-  name              = "/aws/eks/${var.context.app_name}-eks_cluster"
-  retention_in_days = 7
-
-}
