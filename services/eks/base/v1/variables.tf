@@ -33,9 +33,9 @@ variable "nodegroup_settings" {
     ami_type = "AL2_x86_64"
     disk_size = 20
     instance_types = ["t3.medium"]
-    desired_size = 4
-    max_size = 4
-    min_size = 4
+    desired_size = 2
+    max_size = 3
+    min_size = 2
     custom_tags = {}
   }
 }
