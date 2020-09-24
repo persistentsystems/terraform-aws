@@ -8,7 +8,6 @@ resource "aws_subnet" "private-sub" {
 
   vpc_id            = aws_vpc.vpc.id
   cidr_block        = var.subnet_settings.private_subnet_cidr_blocks[count.index]
- # availability_zone = var.subnet_settings.availability_zones[count.index]
   availability_zone = data.aws_availability_zones.available.names[count.index]
 
   tags = merge(
@@ -26,7 +25,6 @@ resource "aws_route_table_association" "private-rt-assoc" {
   count = length(var.subnet_settings.private_subnet_cidr_blocks)
 
   subnet_id      = aws_subnet.private-sub[count.index].id
-#  route_table_id = aws_route_table.privateRT[count.index].id
   route_table_id = aws_route_table.privateRT.id
 }
 
